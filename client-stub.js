@@ -17,7 +17,7 @@ const clientStub = new PasswordService(
   grpc.credentials.createInsecure()
 );
 
-clientStub.retrievePasswords({}, (error, passwords) => {
+clientStub.retrievePasswords({name: 'Mario', somethingElse: 'abccc'}, (error, passwords) => {
   //implement your error logic here
   console.log(passwords);
 });

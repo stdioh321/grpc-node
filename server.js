@@ -25,6 +25,7 @@ let dummyRecords = {
 ourServer.addService(grpcObj.PasswordService.service, {
   /*our protobuf message(passwordMessage) for the RetrievePasswords was Empty. */
   retrievePasswords: (passwordMessage, callback) => {
+    console.log(passwordMessage.request);
       callback(null, dummyRecords);
   },
   addNewDetails: (passwordMessage, callback) => {
