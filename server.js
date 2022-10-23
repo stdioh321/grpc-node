@@ -25,8 +25,10 @@ let dummyRecords = {
 ourServer.addService(grpcObj.PasswordService.service, {
   /*our protobuf message(passwordMessage) for the RetrievePasswords was Empty. */
   retrievePasswords: (passwordMessage, callback) => {
-    console.log(passwordMessage.request);
-      callback(null, dummyRecords);
+    const {request} = passwordMessage;
+    console.log({request});
+    const theError = request.name === '1' ? Error('Tudo errado') : null
+    callback(theError, dummyRecords);
   },
   addNewDetails: (passwordMessage, callback) => {
       const passwordDetails = { ...passwordMessage.request };

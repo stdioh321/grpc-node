@@ -17,9 +17,9 @@ const clientStub = new PasswordService(
   grpc.credentials.createInsecure()
 );
 
-clientStub.retrievePasswords({name: 'Mario', somethingElse: 'abccc'}, (error, passwords) => {
+clientStub.retrievePasswords({name: `${Math.round(Math.random())}`, somethingElse: 'abccc'}, (error, passwords) => {
   //implement your error logic here
-  console.log(passwords);
+  console.log({error, passwords: JSON.stringify(passwords)});
 });
 
 const saltRounds = 10;
